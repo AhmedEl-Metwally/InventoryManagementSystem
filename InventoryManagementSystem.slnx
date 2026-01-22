@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/Core/">
+    <Project Path="InventoryManagementSystem.Application/InventoryManagementSystem.Application.csproj" />
+    <Project Path="InventoryManagementSystem.Domain/InventoryManagementSystem.Domain.csproj" />
+  </Folder>
+  <Folder Name="/Infrastructure/">
+    <Project Path="InventoryManagementSystem.Infrastructure/InventoryManagementSystem.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/Presentation/">
+    <Project Path="InventoryManagementSystem.API/InventoryManagementSystem.API.csproj" />
+  </Folder>
+  <Folder Name="/Shared/">
+    <Project Path="InventoryManagementSystem.Shared/InventoryManagementSystem.Shared.csproj" />
+  </Folder>
+</Solution>
