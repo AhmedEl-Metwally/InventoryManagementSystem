@@ -8,6 +8,7 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddSharedOpenApiDocumentation();
 builder.Services.AddInfrastructureServices<InventoryManagementSystemDbContext>(builder.Configuration);
+builder.Services.AddCoreServices();
 
 
 var app = builder.Build();

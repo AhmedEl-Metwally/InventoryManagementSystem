@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\Repositorys\" />
     <Folder Include="Contracts\Services\" />
     <Folder Include="Mapping\" />
     <Folder Include="Services\" />
