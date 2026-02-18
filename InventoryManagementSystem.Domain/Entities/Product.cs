@@ -8,7 +8,6 @@ namespace InventoryManagementSystem.Domain.Entities
         public string Description { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public int QuantityInStock { get; set; }
-        //public Supplier Suppliers { get; set; } = new Supplier();
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

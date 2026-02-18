@@ -1,4 +1,5 @@
-﻿using InventoryManagementSystem.Domain.Entities;
+﻿using InventoryManagementSystem.Domain.Common;
+using InventoryManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryManagementSystem.Infrastructure.Data.Context
@@ -9,6 +10,21 @@ namespace InventoryManagementSystem.Infrastructure.Data.Context
         {
             // base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(InventoryManagementSystemDbContext).Assembly);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            var entries = ChangeTracker.Entries<Product>()
+                .Where(E => E.State == EntityState.Added || E.State == EntityState.Modified);
+
+            foreach (var entry in entries)
+            {
+                entry.Entity.UpdatedAt = DateTime.UtcNow;
+
+                if(entry.State == EntityState.Added)
+                    entry.Entity.CreatedAt = DateTime.UtcNow;
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
 
         public DbSet<Product> Products { get; set; }

@@ -1,4 +1,5 @@
-﻿using InventoryManagementSystem.Domain.Common;
+﻿using Ardalis.Specification;
+using InventoryManagementSystem.Domain.Common;
 
 namespace InventoryManagementSystem.Application.Contracts.Repositorys
 {
@@ -9,5 +10,6 @@ namespace InventoryManagementSystem.Application.Contracts.Repositorys
         Task AddAsync(TEntity entity);
         void Update(TEntity entity);
         void Delete(TEntity entity);
+        Task<IEnumerable<TEntity>> ListAsync(ISpecification<TEntity> specification);
     }
 }

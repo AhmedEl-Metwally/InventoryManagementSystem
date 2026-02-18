@@ -1,19 +1,26 @@
+using InventoryManagementSystem.API.ExceptionHandlers;
+using InventoryManagementSystem.Application.Contracts.Services;
 using InventoryManagementSystem.Infrastructure.Data.Context;
 using InventoryManagementSystem.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddProblemDetails();
+
 // Add services to the container.
 builder.Services.AddControllers();
+builder.Services.AddProblemDetails();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddSharedOpenApiDocumentation();
+builder.Services.AddCoreServices(typeof(IApplicationAssemblyMarker).Assembly);
 builder.Services.AddInfrastructureServices<InventoryManagementSystemDbContext>(builder.Configuration);
-builder.Services.AddCoreServices();
+builder.Services.AddSharedOpenApiDocumentation();
 
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-app.UseSharedOpenApiDocumentation();    
+app.UseExceptionHandler();
+app.UseSharedOpenApiDocumentation();
 
 app.Run();
