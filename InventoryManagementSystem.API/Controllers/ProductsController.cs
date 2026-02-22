@@ -30,8 +30,6 @@ namespace InventoryManagementSystem.API.Controllers
         {
             var command = new CreateProductCommand(productCreateDto);
             var result = await _mediator.Send(command);
-            //if (result.IsSuccess && result.Value is not null)
-            //    return CreatedAtAction(nameof(GetByIdAsync), new { id = result.Value.Id }, result);
             return HandleResult(result);
         }
 
