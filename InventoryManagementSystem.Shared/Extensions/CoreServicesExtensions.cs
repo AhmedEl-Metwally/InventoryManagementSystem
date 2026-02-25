@@ -25,6 +25,8 @@ namespace InventoryManagementSystem.Shared.Extensions
             Services.AddValidatorsFromAssembly(assembly);
 
             ProductMapping.ProductsMapping();
+            LowStockAlertMapping.LowStockAlertsMapping();
+
             var categoryMapping = TypeAdapterConfig.GlobalSettings;
             Services.AddSingleton(categoryMapping);
             Services.AddScoped<IMapper, ServiceMapper>();

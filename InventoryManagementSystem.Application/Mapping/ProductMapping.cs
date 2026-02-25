@@ -13,7 +13,7 @@ namespace InventoryManagementSystem.Application.Mapping
                 .NewConfig()
                 .Map(dest => dest.CategoryName, src => src.Category.Name)
                 .Map(dest => dest.SupplierName, src => src.Supplier.Name)
-                .Map(dest => dest.IsLowStock, src => src.QuantityInStock < 10);
+                .Map(dest => dest.IsLowStock, src => src.QuantityInStock <= src.MinStockThreshold);
 
             TypeAdapterConfig<ProductCreateDto, Product>.NewConfig();
             TypeAdapterConfig<ProductUpdateDto, Product>.NewConfig();

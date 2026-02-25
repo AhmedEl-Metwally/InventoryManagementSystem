@@ -8,6 +8,8 @@ namespace InventoryManagementSystem.Domain.Entities
         public string Description { get; set; } = string.Empty;
         public decimal Price { get; set; }
         public int QuantityInStock { get; set; }
+        public int MinStockThreshold { get; set; } = 5;
+
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

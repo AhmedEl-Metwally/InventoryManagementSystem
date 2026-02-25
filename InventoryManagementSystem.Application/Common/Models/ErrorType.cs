@@ -1,4 +1,4 @@
-﻿namespace InventoryManagementSystem.Application.Common
+﻿namespace InventoryManagementSystem.Application.Common.Models
 {
     public enum ErrorType
     {

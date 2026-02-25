@@ -1,4 +1,4 @@
-﻿using InventoryManagementSystem.Application.Common;
+﻿using InventoryManagementSystem.Application.Common.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 

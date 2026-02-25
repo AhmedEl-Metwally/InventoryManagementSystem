@@ -1,4 +1,4 @@
-﻿using InventoryManagementSystem.Application.Common;
+﻿using InventoryManagementSystem.Application.Common.Models;
 using MediatR;
 
 namespace InventoryManagementSystem.Application.Commands.Products.DeleteProduct

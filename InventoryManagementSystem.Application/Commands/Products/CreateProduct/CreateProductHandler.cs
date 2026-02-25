@@ -1,5 +1,5 @@
 ﻿using InventoryManagementSystem.Application.Commands.CreateProduct;
-using InventoryManagementSystem.Application.Common;
+using InventoryManagementSystem.Application.Common.Models;
 using InventoryManagementSystem.Application.Contracts.Repositorys;
 using InventoryManagementSystem.Application.DTOS;
 using InventoryManagementSystem.Domain.Entities;
