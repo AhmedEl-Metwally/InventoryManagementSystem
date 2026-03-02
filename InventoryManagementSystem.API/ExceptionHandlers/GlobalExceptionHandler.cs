@@ -14,6 +14,7 @@ namespace InventoryManagementSystem.API.ExceptionHandlers
             {
                 ValidationException => (StatusCodes.Status400BadRequest, "Validation Error"),
                 NotFoundException => (StatusCodes.Status404NotFound, "Not Found"),
+                EmailDeliveryException =>(StatusCodes.Status503ServiceUnavailable, "Email Delivery Error"),
                 _ => (StatusCodes.Status500InternalServerError, "An unexpected error occurred")
             };
             httpContext.Response.StatusCode = statusCode;
