@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using InventoryManagementSystem.Application.Behaviors;
+using InventoryManagementSystem.Application.Common.Behaviors;
 using InventoryManagementSystem.Application.Contracts.Repositorys;
 using InventoryManagementSystem.Application.Mapping;
 using InventoryManagementSystem.Infrastructure.Repositories;
@@ -21,6 +22,8 @@ namespace InventoryManagementSystem.Shared.Extensions
             {
                 CFG.RegisterServicesFromAssembly(assembly);
                 CFG.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
+                CFG.AddOpenBehavior(typeof(CachingBehavior<,>));
+                CFG.AddOpenBehavior(typeof(CacheInvalidatorBehavior<,>));
             });
             Services.AddValidatorsFromAssembly(assembly);
 

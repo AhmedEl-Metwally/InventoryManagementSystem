@@ -17,6 +17,7 @@ namespace InventoryManagementSystem.Shared.Extensions
 
             Services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
 
+            Services.AddMemoryCache();
             Services.AddTransient<IEmailService, EmailService>();
 
             return Services;
