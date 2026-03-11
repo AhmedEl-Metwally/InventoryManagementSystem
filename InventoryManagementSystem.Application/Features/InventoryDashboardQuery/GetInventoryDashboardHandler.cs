@@ -18,6 +18,19 @@ namespace InventoryManagementSystem.Application.Features.InventoryDashboardQuery
             var suppliers = await _unitOfWork.GetRepository<Supplier, int>().GetAllAsync();
             var categories = await _unitOfWork.GetRepository<Category, int>().GetAllAsync();
 
+            var topSellingProducts = salesTransactions
+                .GroupBy(T => T.ProductId)
+                .Select(P => new ProductPerformanceDto 
+                {
+                    ProductId = P.Key,
+                    ProductName = products.FirstOrDefault(N => N.Id == P.Key)?.Name ?? "Unknown Product",
+                    TotalSoldQuantity = P.Sum(Q => Q.Quantity),
+                    TotalRevenue = P.Sum(R => R.TotalAmount)
+                })
+                .OrderByDescending(P => P.TotalSoldQuantity)
+                .Take(5)
+                .ToList();
+
             var report = new InventoryDashboardDto
             {
                 //Products
@@ -27,6 +40,7 @@ namespace InventoryManagementSystem.Application.Features.InventoryDashboardQuery
                 //Transaction
                 TotalSalesRevenue = salesTransactions.Sum(T => T.TotalAmount),
                 TotalSalesCount = salesTransactions.Count(),
+                TopSellingProducts = topSellingProducts,
                 //LowStockAlerts
                 CurrentLowStockAlerts = activeAlerts.Count(),
                 //Suppliers and Categories

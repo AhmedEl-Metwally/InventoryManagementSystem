@@ -18,6 +18,7 @@ namespace InventoryManagementSystem.Shared.Extensions
             }
 
             app.UseHttpsRedirection();
+            app.UseAuthentication();
             app.UseAuthorization();
             app.MapControllers();
 

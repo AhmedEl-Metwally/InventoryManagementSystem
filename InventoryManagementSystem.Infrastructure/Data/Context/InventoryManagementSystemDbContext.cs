@@ -1,5 +1,4 @@
-﻿using InventoryManagementSystem.Domain.Common;
-using InventoryManagementSystem.Domain.Entities;
+﻿using InventoryManagementSystem.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace InventoryManagementSystem.Infrastructure.Data.Context
@@ -21,7 +20,7 @@ namespace InventoryManagementSystem.Infrastructure.Data.Context
             {
                 entry.Entity.UpdatedAt = DateTime.UtcNow;
 
-                if(entry.State == EntityState.Added)
+                if (entry.State == EntityState.Added)
                     entry.Entity.CreatedAt = DateTime.UtcNow;
             }
             return base.SaveChangesAsync(cancellationToken);

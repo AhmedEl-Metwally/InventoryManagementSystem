@@ -1,6 +1,7 @@
 using InventoryManagementSystem.API.ExceptionHandlers;
 using InventoryManagementSystem.Application.Contracts.Services;
 using InventoryManagementSystem.Infrastructure.Data.Context;
+using InventoryManagementSystem.Infrastructure.Extensions;
 using InventoryManagementSystem.Shared.Extensions;
 using System.Text.Json.Serialization;
 

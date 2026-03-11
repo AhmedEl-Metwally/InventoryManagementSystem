@@ -11,6 +11,9 @@
         public decimal TotalSalesRevenue { get; init; }
         public int TotalSalesCount { get; init; }
 
+        //Top Performing Products
+        public IEnumerable<ProductPerformanceDto> TopSellingProducts { get; init; } = [];
+
         //Alerts accounts
         public int CurrentLowStockAlerts { get; init; }
 

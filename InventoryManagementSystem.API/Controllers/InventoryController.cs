@@ -2,10 +2,12 @@
 using InventoryManagementSystem.Application.Commands.SaleCacheInvalidator;
 using InventoryManagementSystem.Application.Features.InventoryDashboardQuery;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManagementSystem.API.Controllers
 {
+    [Authorize(Roles = "Admin,Manager,Staff")]
     public class InventoryController(IMediator _mediator) : BaseController
     {
         [HttpGet("dashboard")]

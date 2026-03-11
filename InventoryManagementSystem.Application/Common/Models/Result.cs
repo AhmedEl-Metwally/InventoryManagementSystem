@@ -7,6 +7,12 @@
         public List<ErrorDetails> Errors { get; set; } = [];
 
         public static Result<T> Success(T Value) => new() { IsSuccess = true, Value = Value };
-        public static Result<T> Failure(string Code, string Message, ErrorType Type) => new() { IsSuccess = false, Errors = { new ErrorDetails(Code, Message, Type)}};
+        // public static Result<T> Failure(string Code, string Message, ErrorType Type) => new() { IsSuccess = false, Errors = { new ErrorDetails(Code, Message, Type)}};
+
+        public static Result<T> Failure(string code, string message, ErrorType type) => new()
+        {
+            IsSuccess = false,
+            Errors = new List<ErrorDetails> { new ErrorDetails(code, message, type) }
+        };
     }
 }

@@ -36,6 +36,7 @@ namespace InventoryManagementSystem.Shared.Extensions
 
             Services.AddScoped(typeof(IGenericRepository<,>), typeof(GenericRepository<,>));
             Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            Services.AddScoped<IUserRepository, UserRepository>();
 
             return Services;
         }

@@ -1,0 +1,3 @@
+﻿UPDATE AspNetUserRoles 
+SET RoleId = 'B7ECBD0E-F1F7-42A1-AB79-D8E7BCD70C97' 
+WHERE UserId = '4d285d0b-312e-4dd6-aa63-5fdbf5536eae';

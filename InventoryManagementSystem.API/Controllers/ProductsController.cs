@@ -5,13 +5,16 @@ using InventoryManagementSystem.Application.DTOS;
 using InventoryManagementSystem.Application.Features.ProductQueries.GetAllProducts;
 using InventoryManagementSystem.Application.Features.ProductQueries.GetProductById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryManagementSystem.API.Controllers
 {
+    [Authorize(Roles = "Admin,Manager")]
     public class ProductsController(IMediator _mediator) : BaseController
     {
         [HttpGet]
+        [Authorize(Roles = "Admin,Manager,Staff")]
         public async Task<IActionResult> GetAllProductAsync([FromQuery] int? CategoryId, [FromQuery] string? Search)
         {
             var query = new GetProductsQuery(CategoryId, Search);
@@ -41,6 +44,7 @@ namespace InventoryManagementSystem.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteAsync(int Id)
         {
             var command  = new DeleteProductCommand(Id);
